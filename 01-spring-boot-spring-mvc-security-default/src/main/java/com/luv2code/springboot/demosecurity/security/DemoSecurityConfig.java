@@ -4,6 +4,7 @@ package com.luv2code.springboot.demosecurity.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -36,7 +37,7 @@ public class DemoSecurityConfig {
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .permitAll()
                 )
-                .logout(logout -> logout.permitAll()
+                .logout(LogoutConfigurer::permitAll
                 )
                 .exceptionHandling(configurer ->
                         configurer.accessDeniedPage("/access-denied")
