@@ -11,4 +11,10 @@ public class LoginController {
         //return "plane-login";
         return "fancy-login";
     }
+
+    // add request mapping for /access-denied
+    @GetMapping("/access-denied")
+    public String showAccessDenied() {
+        return "access-denied";
+    }
 }
